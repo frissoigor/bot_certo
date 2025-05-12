@@ -4,6 +4,9 @@ const fs = require("fs");
 
 // Cria o cliente com suporte a sessão persistente
 const client = new Client({
+  puppeteer: {
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  },
   authStrategy: new LocalAuth({
     dataPath: "./sessao", // pasta onde a sessão será armazenada
   }),
